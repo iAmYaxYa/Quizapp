@@ -1,0 +1,513 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS';
+}
+body{
+    overflow: hidden;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(127, 9, 246);
+    overflow: hidden;
+}
+.container .choose{
+    padding: 25px 0;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.3);
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform .4s ease;
+}
+.container .choose.hide{
+    transform: scale(1);
+    opacity: 0;
+    pointer-events: none;
+}
+.container .title{
+    font-size: 25px;
+    color: rgb(127, 9, 246);
+    font-weight: 900;
+    padding: 0 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.choose .content{
+    width: 100%;
+}
+.content p{
+    font-size: 30px;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+    font-weight: 600;
+    text-transform: capitalize;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .choose-fav{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .choose-fav button{
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(127, 9, 246);
+    color: #fff;
+    border-radius: 6px;
+    transition: all .4s ease;
+    cursor: pointer;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.1);
+}
+.content .choose-fav button:hover{
+    background-color: rgb(154, 61, 247);
+    color: #fff;
+}
+.choose-fav #img-question{
+    background-color: transparent;
+    color: rgba(0,0,0,0.8);
+    border: 1px solid rgb(127, 9, 246);
+}
+.choose-fav #img-question:hover{
+    background-color: rgb(145, 42, 248);
+    color: #fff;
+}
+/* media Queries */
+@media (max-width: 700px){
+    .container .choose{
+        width: 400px;
+    }
+    .container .title{
+        font-size: 20px !important;
+    }
+    .content p{
+        font-size: 20px !important;
+    }
+    .content .choose-fav button{
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+/* ============================== Quizes =================================== */
+
+.app,.text-questions{
+    padding: 25px 0;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.3);
+    width: 550px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .4s ease;
+}
+.app.show{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+.text-questions.show{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+.question h4{
+    font-size: 22px;
+    color: rgba(0,0,0,0.8);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.question{
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 25px;
+}
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.option{
+    flex-basis: 48%;
+    background-color: rgb(233, 229, 229);
+    border: 1px solid rgb(127, 9, 246);
+    margin: 1%;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 15px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.8);
+    text-transform: capitalize;
+    font-weight: 600;
+    transition: all .4s ease;
+    position: relative;
+}
+.option:hover{
+    background-color: rgba(154, 61, 247, 0.381);
+}
+.option.answer{
+    background-color: #cefad0;
+    border: 1px solid #008631;
+}
+.option.wrong{
+    background-color: #ffcbd1;
+    border: 1px solid #c30010;
+}
+.option span{
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+.option span .ans{
+    color: #008631;
+    font-size: 25px;
+    font-weight: 600;
+}
+.option span .wr{
+    color: #c30010;
+    font-size: 25px;
+    font-weight: 600;
+}
+.option.disabled{
+    pointer-events: none;
+}
+.app .img{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s ease;
+}
+.app .img:hover img{
+    transform: translateY(-10px);
+}
+.app .img img{
+    width: 100px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.3);
+}
+.btn button{
+    border: none;
+    outline: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(127, 9, 246);
+    color: #fff;
+    border-radius: 6px;
+    transition: all .4s ease;
+    cursor: pointer;
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .4s ease;
+}
+.btn button.active{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+.btn button:hover{
+    background-color: rgb(145, 42, 248);
+    color: #fff;
+}
+.time-left{
+    position: absolute;
+    top: 12px;
+    right: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,0.7);
+    padding: 15px 50px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.time-left p{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-right: 5px;
+    text-transform: capitalize;
+}
+.time-left span{
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+.text-questions .option{
+    flex-basis: 100%;
+}
+.option p{
+    text-transform: capitalize;
+}
+.question-current{
+    font-size: 18px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(11, 156, 100);
+    color: #fff;
+    border-radius: 6px;
+    text-transform: capitalize;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+.skip{
+    position: absolute;
+    right: 27px;
+    top: 90px;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(246, 9, 9);
+    color: #fff;
+    border-radius: 6px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+.skip.hide{
+    transform: scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+}
+/* media Queries */
+@media (max-width: 700px){
+    .container .app, .container .text-questions{
+        width: 400px;
+    }
+    .options{
+        margin-top: 0px;
+        margin: 2%;
+        margin-bottom: 10px;
+    }
+    .text-questions .options{
+        margin-top: 25px;
+        padding: 0px 30px;
+        margin-bottom: 20px;
+    }
+    .option{
+        flex-basis: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+    .option span{
+        top: 15px;
+    }
+    .option span .wr, .option span .ans{
+        font-size: 18px;
+    }
+    .app .img{
+        margin-top: 10px;
+        height: 100px;
+    }
+    .app .img:hover img{
+        transform: translateY(0);
+    }
+    .app .img img{
+        width: 80px;
+    }
+    .btn button{
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+    .question h4{
+        font-size: 18px;
+    }
+    .skip{
+        top: 88px;
+        padding: 8px 20px;
+    }
+    .question-current{
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .time-left{
+        position: absolute;
+        top: 16px;
+        padding: 10px 20px;
+    }
+    .time-left p{
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        margin-right: 3px;
+    }
+    .time-left span{
+        font-size: 18px;
+    }
+}
+.game-result{
+    padding: 25px 0;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.3);
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform .4s ease;
+}
+.game-result.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+.game-result .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.game-result .icon img{
+    width: 200px;
+}
+.game-result ul{
+    padding: 0 20px;
+}
+.game-result ul li{
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.game-result ul li .property{
+    width: 70%;
+    background-color: rgb(11, 156, 100);
+    color: #fff;
+    border-bottom-right-radius: 30px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+.game-result ul li .value{
+    width: 30%;
+    background-color: rgb(127, 9, 246);
+    color: #fff;
+    border-top-left-radius: 30px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+.btn-result{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0px 30px;
+}
+.btn-result button{
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: rgb(127, 9, 246);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .4s ease;
+    text-transform: capitalize;
+}
+.btn-result .exit{
+    color: rgba(0,0,0,0.8);
+    border: 2px solid rgb(127, 9, 246);
+    background-color: transparent;
+}
+.btn-result .exit:hover{
+    background-color: rgb(127, 9, 246);
+    color: #fff;
+}
+/* media Queries */
+@media (max-width:700px){
+    .game-result{
+        width: 400px;
+    }
+    .game-result .icon img{
+        width: 150px;
+        margin-bottom: 20px;
+    }
+    .game-result ul li{
+        padding: 5px;
+    }
+    .game-result ul li .property{
+        padding: 8px;
+        font-size: 17px;
+    }
+    .game-result ul li .value{
+        padding: 8px;
+        font-size: 17px;
+    }
+    .btn-result{
+        padding: 0px 26px;
+    }
+    .btn-result button{
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: rgb(127, 9, 246);
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all .4s ease;
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (min-device-width: 400px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 2){
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        max-width: 100%;
+    }
+    body{
+        overflow: hidden;
+    }
+}

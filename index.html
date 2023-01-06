@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="choose">
+            <h2 class="title">Quiz Application</h2>
+            <div class="content">
+                <p>choose your favorite Quiz?</p>
+                <div class="choose-fav">
+                    <button id="img-question">Image Quiz</button>
+                    <button id="text-question">Text Quiz</button>
+                </div>
+            </div>
+        </div>
+       <div class="app">
+        <div class="header">
+            <h2 class="title">Quiz Application</h2>
+            <div class="time-left">
+                <p>Time left : </p><span> 15s</span>
+            </div>
+        </div>
+        <div class="img-questions">
+            <div class="question"></div>
+            <button class="skip">
+                skip
+            </button>
+            <div class="img"></div>
+            <div class="options"></div>
+            <div class="btn">
+                <div class="question-current">
+                    <!-- question 1 of 12 -->
+                </div>
+                <button id="next">Next</button>
+            </div>
+        </div>
+       </div>
+       <!-- text question -->
+       <div class="text-questions">
+        <div class="header">
+            <h2 class="title">Quiz Application</h2>
+            <div class="time-left">
+                <p>Time left : </p><span> 15s</span>
+            </div>
+        </div>
+        <div class="question"></div>
+        <button class="skip">
+            skip
+        </button>
+        <div class="options"></div>
+        <div class="btn">
+            <div class="question-current">
+                question 1 of 12
+            </div>
+            <button id="next">Next</button>
+        </div>
+    </div>
+    <div class="game-result">
+        <div class="icon">
+            <img src="img/ei_1671900577272-removebg-preview.png" alt="">
+        </div>
+        <ul>
+            <li><span class="property">Succes Answers</span> <span class="value succes-answer">04</span></li>
+            <li><span class="property">Wrong Answers</span> <span class="value wrong-answer">04</span></li>
+            <li><span class="property">time over</span> <span class="value time-over">04</span></li>
+            <li><span class="property">skiped </span> <span class="value skiped">04</span></li>
+        </ul>
+        <div class="btn-result">
+            <button class="restart">restart quiz</button>
+            <button class="exit">exit quiz</button>
+        </div>
+    </div>
+    </div>
+    <script src="imgQuestion.js"></script>
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
